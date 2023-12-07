@@ -26,7 +26,7 @@ digitButtons.forEach(function (button) {
             }
         } else if (buttonId === "ac") {
             display.innerText = "";
-            // firstDigit = result;
+            // firstDigit = result.toString();
             firstDigit = secondDigit = operator = "";
         }
         console.log(button.className);
@@ -44,7 +44,7 @@ function operate() {
                     result = result.toFixed(2);
                 }
                 display.innerText = result;
-                firstDigit = result;
+                firstDigit = result.toString();
                 secondDigit = operator = "";
                 return result;
             case "-":
@@ -53,7 +53,7 @@ function operate() {
                     result = result.toFixed(2);
                 }
                 display.innerText = result;
-                firstDigit = result;
+                firstDigit = result.toString();
                 secondDigit = operator = "";
                 return result;
             case "*":
@@ -62,7 +62,7 @@ function operate() {
                     result = result.toFixed(2);
                 }
                 display.innerText = result;
-                firstDigit = result;
+                firstDigit = result.toString();
                 secondDigit = operator = "";
                 return result;
             case "/":
@@ -71,7 +71,16 @@ function operate() {
                     result = result.toFixed(2);
                 }
                 display.innerText = result;
-                firstDigit = result;
+                firstDigit = result.toString();
+                secondDigit = operator = "";
+                return result;
+            case "%":
+                result = parseFloat(firstDigit) % parseFloat(secondDigit);
+                if (result % 1 !== 0) {
+                    result = result.toFixed(2);
+                }
+                display.innerText = result;
+                firstDigit = result.toString();
                 secondDigit = operator = "";
                 return result;
             default:
